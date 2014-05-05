@@ -1,0 +1,13 @@
+<h2><%= @task.title %>
+
+<h3><%= @task.task_type %></h3>
+<h3><%= @task.address %></h3>
+<p><%= @task.start_date.to_formatted_s(:rfc822) %><p>
+<p><%= simple_format @task.description %><p>
+
+<div class="actions">
+	<%= link_to "Edit", edit_task_path(@task) %>
+	<%= link_to "Delete", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
+
+<%= link_to "Home", root_path %>
