@@ -1,0 +1,11 @@
+<h2>Pitch for this task</h2>
+
+<%= simple_form_for [@task,@pitch] do |form| %>
+
+	<%= form.input :body, label: "Describe how you will carry out the task" %>
+	<%= form.input :price, label: "How much will you charge?" %>
+	<%= form.input :start_date, label: "When can you start?" %>
+
+	<%= form.button :submit, "Pitch" %>
+
+<% end %>

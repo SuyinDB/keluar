@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
 
 # associations
 	belongs_to :user
+	has_many :pitches
 
 # validations
 

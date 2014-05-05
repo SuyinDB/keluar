@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
 	# associations
 		has_many :tasks
+		has_many :pitches
 
 	# validations
 		validates :username, presence: true, uniqueness: true, if: ->{ provider.nil? }

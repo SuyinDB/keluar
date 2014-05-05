@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :tasks
+  resources :tasks do
+  	resources :pitches
+  end
 
   resource :session
 

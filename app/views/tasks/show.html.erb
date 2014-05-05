@@ -5,6 +5,8 @@
 <p><%= @task.start_date.to_formatted_s(:rfc822) %><p>
 <p><%= simple_format @task.description %><p>
 
+
+<!-- Only show edit and delete if this is my task -->
 <% if current_user.present? and current_user == @task.user %>
 <div class="actions">
 	<%= link_to "Edit", edit_task_path(@task) %>
@@ -12,4 +14,34 @@
 </div>
 <% end %>
 
-<%= link_to "Home", root_path %>
+<!-- Only show pitch button if this isn't my task and I haven't pitched on it yet-->
+<% if current_user != @task.user %>
+<%= link_to "Pitch", new_task_pitch_path(@task) %>
+<% end %>
+
+<!-- If the current user does own this task then show the pitches -->
+<% if current_user == @task.user %>
+
+	<h3>Your pitches</h3>
+
+	<% if @task.pitches.present? %>
+
+		<% @task.pitches.each do |pitch| %>
+
+			<p><strong>Pitch details: </strong> <%= simple_format pitch.body %></p>
+			<p><strong>Cost: </strong> £<%= pitch.price %></br>
+			<strong>Available from: </strong><%= pitch.start_date.to_formatted_s(:rfc822) %></p>
+
+			<p>Pitched by <%= pitch.user.username %>, <%= time_ago_in_words pitch.created_at %> ago </p>
+
+		<%end%>
+
+		<% else %>
+
+		<p>No one has pitched for your task yet.</p>
+
+		<%end%>
+
+<%end%>
+
+
