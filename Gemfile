@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -37,4 +37,24 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#CMS
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+# for forms
+gem 'simple_form'
+
+# for image and potentially pdf CV uploads
+gem 'paperclip'
+
+# for payments on orders
+gem 'stripe'
+
+# for placing tasks and people, and searching etc
+gem 'geocoder'
+
+# for enabling logon with social networks
+# first line is base gem, you then need to specify the logins you want as below
+gem 'omniauth'
+gem 'omniauth-linkedin'
 
