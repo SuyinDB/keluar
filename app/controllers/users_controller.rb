@@ -25,10 +25,24 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 		
 	end
 
 	def update
+		@user = User.find(params[:id])
+
+		if @user.update(user_params)
+
+			flash[:success] = "Thanks for updating your details"
+
+			redirect_to root_path
+
+		else
+
+			render "edit"
+
+		end
 
 	end
 	
