@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
 
 # associations
+	belongs_to :user
 
 # validations
 

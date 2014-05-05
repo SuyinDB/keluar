@@ -5,9 +5,11 @@
 <p><%= @task.start_date.to_formatted_s(:rfc822) %><p>
 <p><%= simple_format @task.description %><p>
 
+<% if current_user.present? and current_user == @task.user %>
 <div class="actions">
 	<%= link_to "Edit", edit_task_path(@task) %>
 	<%= link_to "Delete", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
+<% end %>
 
 <%= link_to "Home", root_path %>

@@ -1,0 +1,14 @@
+<h2>Sign in</h2>
+
+<%= simple_form_for :session, url: session_path do |form| %>
+	
+	<%= form.input :username %>
+	<%= form.input :password %>
+
+	<%= form.button :submit, "Sign in" %>
+
+	<% end %>
+
+<p>
+	<%= link_to "Sign in with LinkedIn", "/auth/linkedin" %>
+</p>

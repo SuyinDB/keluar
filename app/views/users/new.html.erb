@@ -1,0 +1,18 @@
+<h2>Sign up to HeroHours</h2>
+
+<h3>Create a new account</h3>
+
+<%= simple_form_for @user do |form| %>
+
+	<%= form.input :username %>
+	<%= form.input :email %>
+	<%= form.input :password %>
+	<%= form.input :password_confirmation %>
+
+	<%= form.button :submit, "Sign Up" %>
+
+<% end %>
+
+<h3>... or 
+	<%= link_to "sign up with LinkedIn", "/auth/linkedin" %>
+</h3>

@@ -56,5 +56,7 @@ gem 'geocoder'
 # for enabling logon with social networks
 # first line is base gem, you then need to specify the logins you want as below
 gem 'omniauth'
-gem 'omniauth-linkedin'
+gem 'omniauth-linkedin-oauth2'
 
+# foundation for easier styling
+gem 'foundation-rails'

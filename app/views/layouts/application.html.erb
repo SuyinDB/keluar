@@ -1,14 +1,62 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Keluar</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "HeroHours" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <!-- brand name area -->
+        <li class="name">
+          <h1><%= link_to "HeroHours", root_path %></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="left">
+          <li></li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="right">
+            <% if current_user.present? %>
+                 <li><%= link_to "Sign out", session_path, method: :delete %></li>
+                 <% else %>
+                 <li><%= link_to "Sign up", new_user_path %></li>
+                 <li><%= link_to "Sign in", new_session_path %></li>
+            <% end %>
+        </ul>
+      </section>
+    </nav> 
+
+    <div class="row">
+
+        <% if flash[:success].present? %>
+          <div data-alert class="alert-box success round">
+            <%= flash[:success] %>
+          </div>
+        <% end %>
+
+        <% if flash[:error].present? %>
+          <div data-alert class="alert-box alert round">
+            <%= flash[:error] %>
+          </div>
+        <% end %>
+
+    <%= yield %>
+
+    <div>
+      
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
